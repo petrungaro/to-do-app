@@ -40,7 +40,20 @@ formElement.addEventListener('submit', function(e) {
 // });
 // The above won't work because the li's don't exist on the page when we load, so instead we use...
 
-// EVENT PROPAGATION to DELEGATE the click event to the ul 
+// EVENT PROPAGATION to DELEGATE the click event to the ul :
+
+const ul = document.querySelector('ul');
+
+ul.addEventListener('click', function(event) {
+    // console.log(event);
+
+    // as long as we've clicked on the icon, then toggle between checked/unchecked:
+    if (event.target.localName === 'i') {
+        event.target.classList.toggle('fa-square-check');
+        event.target.classList.toggle('fa-square');
+    }
+
+});
 
 
 
